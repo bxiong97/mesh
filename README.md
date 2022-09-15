@@ -21,35 +21,37 @@ The ``Mesh`` processing libraries support several of our projects such as
 Requirements
 ------------
 
-You first need to install the `Boost <http://www.boost.org>`_
-libraries.  You can compile your own local version or simply do on
-Linux
-
-```
-$ sudo apt-get install libboost-dev
-```
-
-or on macOS
-
-```
-$ brew install boost
-```
+You first need to install the `Boost <http://www.boost.org>` libraries. Directly download from the website into the `boost` folder in this project, then unzip. It makes the path easy to get later.
 
 Installation
 ------------
 
-First, create a dedicated Python virtual environment and activate it:
+First, make sure you are using Python 3.6. If not, create a conda env with the specified version:
 
 ```
-$ python3 -m venv --copies my_venv
-$ source my_venv/bin/activate
+conda create --name py36 python=3.6
+conda activate py36
+```
+
+Then, create a dedicated Python virtual environment and activate it:
+
+```
+python3 -m venv --copies my_venv
+conda deactivate
+source my_venv/bin/activate
+```
+
+Finally, upgrade to the latest pip, or `make` will fail:
+
+```
+pip install --upgrade pip
 ```
 
 You should then compile and install the ``psbody-mesh`` package easily
 using the Makefile:
 
 ```
-$ BOOST_INCLUDE_DIRS=/path/to/boost/include make all
+$ BOOST_INCLUDE_DIRS=/home/yanfeng/github/mesh/boost/boost_1_80_0 make all
 ```
 
 Testing
